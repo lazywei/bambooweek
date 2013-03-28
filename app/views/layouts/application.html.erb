@@ -1,14 +1,80 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Bambooweek</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
+    <title>竹塹週預購網站</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="">
+    <%= yield :header %>
+    <%= stylesheet_link_tag    "application", :media => "all" %>
 
-<%= yield %>
+    <%#= javascript_include_tag "templates/admin_panel" %>
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="../assets/js/html5shiv.js"></script>
+    <![endif]-->
+    <link rel="shortcut icon" href="../assets/ico/favicon.png">
+    <%= csrf_meta_tags %>
+  </head>
+  <body id="<%= "%s_%s" % [controller_name, action_name] %>" class="<%= controller_name %> <%= action_name %>">
 
-</body>
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li>
+              <%= link_to "/" do %>
+                首頁
+              <% end %>
+              </li>
+              <li>
+              <%= link_to "/" do %>
+                blah
+              <% end %>
+              </li>
+            </ul>
+            <ul class="nav pull-right">
+              <li>
+                <%= link_to "/" do %>
+                查看訂單
+                <% end %>
+              </li>
+            </ul>
+            <ul class="nav">
+              <li class="dropdown">
+
+              </li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="span2">
+          <div class="well">
+            menu here
+          </div>
+        </div><!--/span-->
+        <div class="span10">
+          <%= yield %>
+        </div><!--/span-->
+      </div><!--/row-->
+
+      <hr>
+
+      <footer>
+      <p>&copy; </p>
+      </footer>
+
+    </div><!--/.fluid-container-->
+    <%= javascript_include_tag "application" %>
+    <%= yield :javascript %>
+  </body>
 </html>

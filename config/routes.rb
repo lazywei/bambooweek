@@ -1,5 +1,7 @@
 # -*- encoding : utf-8 -*-
 Bambooweek::Application.routes.draw do
+  resources :items, :only => [:index, :show]
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
