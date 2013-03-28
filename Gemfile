@@ -37,7 +37,7 @@ gem 'capistrano'
 # To use debugger
 # gem 'debugger'
 
-gem 'venus'
+gem 'venus', :git => 'git://github.com/marsz/venus.git'
 
 gem 'kaminari'
 
@@ -52,3 +52,9 @@ group :development do
   gem "pry-remote"
 end
 gem 'mysql2'
+
+gem 'carrierwave', '~> 0.8.0'
+
+gem 'rmagick'
+
+gem 'carrierwave-meta', '~> 0.0.4'
