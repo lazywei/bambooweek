@@ -4,9 +4,12 @@ Bambooweek::Application.routes.draw do
   devise_for :users
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
-  resources :items, :only => [:index, :show] do
-    post 'add_into_cart', :on => :member
+  resource :cart, :only => [:show] do 
+    post :put_into
+    post 'remove_from/:item_id' => 'carts#remove_from', :as => :remove_from
   end
+
+  resources :items, :only => [:index, :show]
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
