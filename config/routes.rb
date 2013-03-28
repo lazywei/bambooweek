@@ -9,6 +9,8 @@ Bambooweek::Application.routes.draw do
     post 'remove_from/:item_id' => 'carts#remove_from', :as => :remove_from
   end
 
+  resource :order, :only => [:show, :create]
+
   resources :items, :only => [:index, :show]
 
   # The priority is based upon order of creation:
