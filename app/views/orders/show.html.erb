@@ -26,7 +26,7 @@
       <% order.order_itemships.each do |o_i| %>
         <tr>
           <td>
-            <%= o_i.item.name %>
+            <%= link_to o_i.item.name, item_path(o_i.item)) %>
           </td>
           <td>
             <%= o_i.count %>

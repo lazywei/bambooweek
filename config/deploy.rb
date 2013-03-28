@@ -1,6 +1,7 @@
 # -*- encoding : utf-8 -*-
 require "bundler/capistrano"
 load 'deploy/assets'
+set :shared_children, shared_children + %w{public/uploads}
 
 set :default_shell, "bash -l"
 
@@ -35,6 +36,10 @@ namespace :deploy do
     run "cp #{db_config} #{release_path}/config/database.yml"
   end
 
+  task :symlink_uploads do
+    run "ln -nfs #{shared_path}/uploads  #{release_path}/public/uploads"
+  end
+
   task :start do ; end
   task :stop do ; end
   task :restart, :roles => :app, :except => { :no_release => true } do
@@ -44,6 +49,7 @@ end
 
 before "deploy:assets:precompile", "deploy:copy_config_files"
 after "deploy:update_code", "deploy:copy_config_files"
+after 'deploy:update_code', 'deploy:symlink_uploads'
 
 
 # For "cap tail_logs"

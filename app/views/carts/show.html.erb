@@ -24,7 +24,7 @@
   </tr>
 <% @cart.each do |id, info| %>
   <tr>
-    <td><%= info[:name] %></td>
+    <td><%= link_to info[:name], item_path(id) %></td>
     <td><%= info[:count] %></td>
     <td><%= info[:price] %></td>
     <td><%= info[:price].to_i * info[:count].to_i %></td>
