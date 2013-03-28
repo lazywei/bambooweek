@@ -1,10 +1,12 @@
 # -*- encoding : utf-8 -*-
 Bambooweek::Application.routes.draw do
+  root :to => 'items#index'
   devise_for :users
-
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
-  resources :items, :only => [:index, :show]
+  resources :items, :only => [:index, :show] do
+    post 'add_into_cart', :on => :member
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

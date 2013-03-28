@@ -20,8 +20,8 @@ class VenusUploader < CarrierWave::Uploader::Base
      process :store_meta
   end
   
-  version :medinum do 
-     process :resize_to_fit => [300, 300]
+  version :medium do 
+     process :resize_to_fill => [300, 200]
      process :store_meta
   end
   
