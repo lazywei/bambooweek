@@ -1,3 +1,5 @@
 class Order < ActiveRecord::Base
-  attr_accessible :email, :mobile, :name, :stid
+  has_many :order_itemships, :dependent => :destroy
+  has_many :items, :through => :order_itemships
+  attr_accessible :email, :mobile, :name, :stid, :item_ids
 end

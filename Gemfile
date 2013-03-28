@@ -60,3 +60,6 @@ gem 'carrierwave', '~> 0.8.0'
 gem 'rmagick'
 
 gem 'carrierwave-meta', '~> 0.0.4'
+
+gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
+gem "devise"
