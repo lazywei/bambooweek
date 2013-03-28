@@ -42,6 +42,7 @@ namespace :deploy do
   end
 end
 
+before "deploy:assets:precompile", "deploy:copy_config_files"
 after "deploy:update_code", "deploy:copy_config_files"
 
 
