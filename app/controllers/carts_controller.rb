@@ -8,7 +8,8 @@ class CartsController < ApplicationController
 
     item_info = {
       :name => @item.name,
-      :count => params[:count].to_i.abs
+      :count => params[:count].to_i.abs,
+      :price => @item.price
     }
 
     @cart[@item.id] = item_info

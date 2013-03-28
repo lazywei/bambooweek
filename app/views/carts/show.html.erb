@@ -6,15 +6,30 @@
   <tr>
     <th>名稱</th>
     <th>數量</th>
+    <th>單價</th>
+    <th>小計</th>
     <th></th>
+    <th>總價</th>
   </tr>
 
+  <tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td>
+      <%= @cart.map {|_, info| info[:price].to_i * info[:count].to_i }.sum %>
+    </td>
+  </tr>
 <% @cart.each do |id, info| %>
   <tr>
     <td><%= info[:name] %></td>
     <td><%= info[:count] %></td>
-    <td><%= link_to '編輯', '' %></td>
+    <td><%= info[:price] %></td>
+    <td><%= info[:price].to_i * info[:count].to_i %></td>
     <td><%= button_to '刪除', remove_from_cart_path(:item_id => id), :class => 'btn btn-danger btn-mini' %></td>
+    <td></td>
   </tr>
 <% end %>
 </table>

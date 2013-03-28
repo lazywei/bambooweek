@@ -8,4 +8,12 @@ class Order < ActiveRecord::Base
   validates_format_of :mobile, :with => /^\d*$/
   validates_format_of :stid, :with => /\w\d*/
   validates :draw_date, :inclusion => {:in => [509, 510], :message => "%{value} is not a valid draw date"}
+
+  def total_price
+    total = 0
+    self.order_itemships.each do |o_i|
+      total += o_i.count.to_i * o_i.item.price.to_i
+    end
+    return total
+  end
 end
