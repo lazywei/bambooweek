@@ -36,7 +36,6 @@
 <%= simple_form_for(Order.new, :url => order_path) do |f| %>
   <%= f.input :name, :label => '姓名' %>
   <%= f.input :mobile, :label => '手機' %>
-  <%= f.input :stid, :label => '學號' %>
   <%= f.input :email %>
   <%= f.input :draw_date, :collection => [['5/9', 509], ['5/10', 510]], :selected => 509 %>
   <%= f.input :items_info, :as => :hidden, :input_html => { :value => (@cart.map {|i,info| [i, info[:count]].join(':')}).join(',') } %>

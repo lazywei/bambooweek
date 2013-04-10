@@ -1,9 +1,8 @@
 class OrdersController < ApplicationController
   def show
-    unless params[:mobile].nil? or params[:stid].nil?
+    unless params[:mobile].nil?
       mobile = params[:mobile]
-      stid = params[:stid].downcase
-      @orders = Order.where('mobile = ? AND stid = ?', mobile, stid)
+      @orders = Order.where('mobile = ?', mobile)
     else
       @orders = []
     end
@@ -19,7 +18,6 @@ class OrdersController < ApplicationController
       @order.order_itemships << o_i
     end
     
-    @order.stid = @order.stid.downcase
     if @order.save
       flash[:notice] = '訂單建立成功'
       session[:cart] = {}
