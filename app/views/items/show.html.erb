@@ -2,9 +2,9 @@
   <div class="span4">
     <p><%= image_tag(@item.picture_url(:medium)) if @item.picture? %></p>
   </div>
-  <div class="span8 text-center">
+  <div class="span8">
     <%= form_tag put_into_cart_path, :method => :post, :class => 'form-inline' do %>
-      <span style="margin-right: 10px"> 價格: <%= @item.price %> </span>
+      <span class="badge badge-info" style="margin-right: 10px"> 價格: <%= @item.price %> </span>
       <span style="margin-right: 10px"> <%= label_tag 'count', '數量' %> </span>
       <span style="margin-right: 10px"> <%= number_field_tag 'count', 1, :class => 'input-mini' %> </span>
       <%= hidden_field_tag 'item_id', @item.id %>

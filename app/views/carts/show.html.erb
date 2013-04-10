@@ -36,8 +36,9 @@
 <%= simple_form_for(Order.new, :url => order_path) do |f| %>
   <%= f.input :name, :label => '姓名' %>
   <%= f.input :mobile, :label => '手機' %>
-  <%= f.input :email %>
-  <%= f.input :draw_date, :collection => [['5/9', 509], ['5/10', 510]], :selected => 509 %>
+  <%= f.input :email, :placeholder => '請台大學生填寫台大信箱' %>
+  <%= f.input :draw_date, :collection => [['5/15', 515], ['5/16', 516]], :selected => 515 %>
+  <%= f.input :note, :placeholder => '對於竹塹周網路預購，以及繳費、取貨有任何疑問，歡迎提出，我們會神出鬼沒的以電子郵件的方式回覆您', :input_html => { :rows => 10 } %>
   <%= f.input :items_info, :as => :hidden, :input_html => { :value => (@cart.map {|i,info| [i, info[:count]].join(':')}).join(',') } %>
   <%= f.button :submit, '建立訂單' %>
 <% end %>
