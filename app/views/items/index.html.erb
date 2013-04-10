@@ -3,7 +3,6 @@
     2013台大竹塹週 快來吃我吧
   </h1>
 </div>
-<%= paginate @items %>
 <div class="well span12 text-center">
   <ul class="thumbnails">
     <% @items.each do |item| %>
@@ -18,4 +17,5 @@
       </li>
     <% end %>
   </ul>
+  <%= paginate @items %>
 </div>
