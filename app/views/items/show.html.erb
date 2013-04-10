@@ -10,6 +10,6 @@
       <%= hidden_field_tag 'item_id', @item.id %>
         <%= submit_tag '加入購物車', :class => 'btn btn-action' %>
     <% end %>
-    <p><%= simple_format @item.description %></p>
+    <p><%= @item.description_html %></p>
   </div>
 </div>

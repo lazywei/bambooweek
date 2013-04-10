@@ -65,3 +65,4 @@ gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
 gem "devise"
 
 gem 'high_voltage'
+gem 'auto_html'
