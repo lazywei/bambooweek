@@ -43,6 +43,9 @@
                 聯絡我們
               <% end %>
               </li>
+              <li>
+                <div class="fb-like" data-href="http://week.ntubamboo.com/" data-send="true" data-layout="button_count" data-width="450" data-show-faces="false" data-font="arial" style="margin: 12px;"></div>
+              </li>
             </ul>
             <ul class="nav pull-right">
               <li>
@@ -92,5 +95,13 @@
     </div><!--/.fluid-container-->
     <%= javascript_include_tag "application" %>
     <%= yield :javascript %>
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/zh_TW/all.js#xfbml=1&appId=225830524119019";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
   </body>
 </html>
