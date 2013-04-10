@@ -104,6 +104,7 @@ GEM
       sass-rails (>= 3.1.1)
     haml (4.0.1)
       tilt
+    high_voltage (1.2.2)
     highline (1.6.16)
     hike (1.2.1)
     i18n (0.6.1)
@@ -221,6 +222,7 @@ DEPENDENCIES
   carrierwave-meta (~> 0.0.4)
   coffee-rails (~> 3.2.1)
   devise
+  high_voltage
   jquery-rails
   kaminari
   magic_encoding

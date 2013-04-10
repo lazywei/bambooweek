@@ -63,3 +63,5 @@ gem 'carrierwave-meta', '~> 0.0.4'
 
 gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
 gem "devise"
+
+gem 'high_voltage'
