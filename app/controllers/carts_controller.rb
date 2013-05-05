@@ -4,6 +4,9 @@ class CartsController < ApplicationController
   end
 
   def put_into
+    reject_create_order
+    return
+
     @item = Item.find(params[:item_id])
 
     item_info = {
@@ -19,6 +22,9 @@ class CartsController < ApplicationController
   end
 
   def remove_from
+    reject_create_order
+    return
+
     @cart.delete(params[:item_id].to_i) if @cart.include? params[:item_id].to_i
     session[:cart] = @cart
 

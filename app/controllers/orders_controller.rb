@@ -9,6 +9,9 @@ class OrdersController < ApplicationController
   end
 
   def create
+    reject_create_order
+    return
+
     items_info = params[:order][:items_info].split(',').map {|x| x.split(':')}
     params[:order].delete(:items_info)
     @order = Order.new(params[:order])
